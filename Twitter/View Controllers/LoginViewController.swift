@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
         
-    }
+    } // end viewDidAppear function
     
     @IBAction func onLoginButton(_ sender: Any) {
         

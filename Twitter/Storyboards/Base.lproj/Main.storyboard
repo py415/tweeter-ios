@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="-6652" y="52.463054187192121"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="WKj-M9-IiE">
             <objects>
                 <tableViewController id="dts-Pa-iJv" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                             <outlet property="delegate" destination="dts-Pa-iJv" id="m68-Wl-6sG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kot-1v-OEf">
+                    <navigationItem key="navigationItem" title="Home" id="kot-1v-OEf">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lcZ-Ko-RUd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

@@ -77,17 +77,41 @@
 		6EBCF52421DF07FC00451C03 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				6EBCF54D21E71F9400451C03 /* Launch Screen.storyboard */,
-				6EBCF52921DF07FC00451C03 /* Main.storyboard */,
+				7203C8ED221F7DCF008D64D5 /* Storyboards */,
+				7203C8EC221F7D8E008D64D5 /* Cells */,
+				7203C8EB221F7D7D008D64D5 /* View Controllers */,
 				6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */,
 				6EBCF52521DF07FC00451C03 /* AppDelegate.swift */,
 				37D29B8521F90E3400984A88 /* Assets.xcassets */,
 				6EBCF53121DF07FE00451C03 /* Info.plist */,
-				72000CE5221E3E3700BBD7A5 /* LoginViewController.swift */,
-				72000CEB221E4A8B00BBD7A5 /* HomeTableViewController.swift */,
-				72E864E5221E568800E62F23 /* TweetCell.swift */,
 			);
 			path = Twitter;
+			sourceTree = "<group>";
+		};
+		7203C8EB221F7D7D008D64D5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				72000CE5221E3E3700BBD7A5 /* LoginViewController.swift */,
+				72000CEB221E4A8B00BBD7A5 /* HomeTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7203C8EC221F7D8E008D64D5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				72E864E5221E568800E62F23 /* TweetCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7203C8ED221F7DCF008D64D5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6EBCF54D21E71F9400451C03 /* Launch Screen.storyboard */,
+				6EBCF52921DF07FC00451C03 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		BE4E6AE53EB27114CB452298 /* Frameworks */ = {
