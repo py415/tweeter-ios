@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="uQz-k7-glc">
             <objects>
-                <viewController id="vfJ-4a-NEe" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfJ-4a-NEe" customClass="LoginViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rHe-Br-Xib">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,16 +50,16 @@
             </objects>
             <point key="canvasLocation" x="-6652" y="52.463054187192121"/>
         </scene>
-        <!--Home-->
+        <!--Tweeter-->
         <scene sceneID="WKj-M9-IiE">
             <objects>
-                <tableViewController id="dts-Pa-iJv" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dts-Pa-iJv" customClass="HomeTableViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xJE-Un-qQX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="120" id="zDP-Gi-VgK" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="120" id="zDP-Gi-VgK" customClass="TweetCell" customModule="Tweeter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zDP-Gi-VgK" id="Acc-EC-p3A">
@@ -109,7 +109,7 @@
                             <outlet property="delegate" destination="dts-Pa-iJv" id="m68-Wl-6sG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="kot-1v-OEf">
+                    <navigationItem key="navigationItem" title="Tweeter" id="kot-1v-OEf">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lcZ-Ko-RUd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
