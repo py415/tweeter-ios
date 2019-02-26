@@ -18,6 +18,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         numOfTweets = 20
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
@@ -106,7 +107,10 @@ class HomeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         let user = tweetArr[indexPath.row]["user"] as! NSDictionary
         
+        cell.profileImageView.roundedImage()
         cell.userNameLabel.text = user["name"] as? String
+        let screen_name = user["screen_name"] as? String
+        cell.screenNameLabel.text = "@\(screen_name!)"
         cell.tweetContentLabel.text = tweetArr[indexPath.row]["text"] as? String
         cell.tweetTimestamp.text = getRelativeTime(timeString: (tweetArr[indexPath.row]["created_at"] as? String)!)
         

@@ -12,6 +12,7 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var tweetContentLabel: UILabel!
     @IBOutlet weak var tweetTimestamp: UILabel!
     
@@ -105,3 +106,12 @@ class TweetCell: UITableViewCell {
     } // end setSelected function
     
 } // end TweetCell class
+
+extension UIImageView {
+    
+    func roundedImage() {
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
+    
+}
