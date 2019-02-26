@@ -110,6 +110,11 @@ class HomeTableViewController: UITableViewController {
         cell.tweetContentLabel.text = tweetArr[indexPath.row]["text"] as? String
         cell.tweetTimestamp.text = getRelativeTime(timeString: (tweetArr[indexPath.row]["created_at"] as? String)!)
         
+        let favorite_count = tweetArr[indexPath.row]["favorite_count"] as? Int
+        cell.favoriteCountLabel.text = "\(favorite_count!)"
+        let retweet_count = tweetArr[indexPath.row]["retweet_count"] as? Int
+        cell.retweetCountLabel.text = "\(retweet_count!)"
+        
         let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageUrl!)
         

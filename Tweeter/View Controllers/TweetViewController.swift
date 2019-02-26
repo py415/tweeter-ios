@@ -34,7 +34,7 @@ class TweetViewController: UIViewController {
             TwitterAPICaller.client?.postTweet(tweetString: tweetTextView.text, success: {
                 self.dismiss(animated: true, completion: nil)
             }, failure: { (error) in
-                print("Error posting tweet \(error)")
+                print("Error posting tweet: \(error)")
                 self.dismiss(animated: true, completion: nil)
             })
         } else {
