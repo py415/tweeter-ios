@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         TwitterAPICaller.client?.login(url: authUrl, success: {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }, failure: { (Error) in
-            print("Could not log in!")
+            print("Could not log in!: \(Error)")
         })
         
     } // end onLoginButton function

@@ -161,7 +161,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apK-EJ-UiL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6652" y="1550.9852216748768"/>
+            <point key="canvasLocation" x="-6652" y="1544"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="jEV-or-Eco">
