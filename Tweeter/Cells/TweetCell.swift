@@ -11,6 +11,7 @@ import UIKit
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var tweetContentLabel: UILabel!
@@ -111,6 +112,11 @@ extension UIImageView {
     
     func roundedImage() {
         self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
+    
+    func roundedBorders() {
+        self.layer.cornerRadius = 20
         self.clipsToBounds = true
     }
     

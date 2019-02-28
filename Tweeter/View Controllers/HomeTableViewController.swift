@@ -19,7 +19,7 @@ class HomeTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        numOfTweets = 20
+        numOfTweets = 5
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
         
@@ -31,6 +31,10 @@ class HomeTableViewController: UITableViewController {
         self.loadTweets()
         
     } // end viewDidAppear
+    
+    @objc func injected() {
+        viewDidAppear(true)
+    }
     
     @objc func loadTweets() {
         
@@ -77,11 +81,11 @@ class HomeTableViewController: UITableViewController {
     } // end loadMoreTweets function
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+
         if indexPath.row + 1 == tweetArr.count {
             loadMoreTweets()
         }
-        
+
     } // end tableView function
     
     @IBAction func onLogout(_ sender: Any) {
@@ -106,8 +110,10 @@ class HomeTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         let user = tweetArr[indexPath.row]["user"] as! NSDictionary
+        let entities = tweetArr[indexPath.row]["entities"] as! NSDictionary
         
         cell.profileImageView.roundedImage()
+        cell.mediaImageView.roundedBorders()
         cell.userNameLabel.text = user["name"] as? String
         let screen_name = user["screen_name"] as? String
         cell.screenNameLabel.text = "@\(screen_name!)"
@@ -126,9 +132,30 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
+        if let media = entities.value(forKey: "media") as? [[String:Any]],
+            !media.isEmpty,
+            let mediaUrl = URL(string: (media[0]["media_url_https"] as? String)!) {
+            
+            print("media_url_https: ", mediaUrl)
+            let data = try? Data(contentsOf: mediaUrl)
+            let mediaType = (media[0]["type"] as? String)!
+            
+            if mediaType == "photo" {
+                if let mediaData = data {
+                    cell.mediaImageView.image = UIImage(data: mediaData)
+                }
+            }
+            
+        } else {
+            print("Does not contain media")
+        }
+        
         cell.setFavorited(tweetArr[indexPath.row]["favorited"] as! Bool)
         cell.tweetId = tweetArr[indexPath.row]["id"] as! Int
         cell.setRetweeted(tweetArr[indexPath.row]["retweeted"] as! Bool)
+        
+        cell.setNeedsUpdateConstraints()
+        cell.setNeedsLayout()
         
         return cell
         
@@ -167,4 +194,5 @@ extension Date {
         
         return "\(secondsAgo / 60 / 60 / 24 / 7) weeks ago"
     }
+    
 }
