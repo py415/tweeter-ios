@@ -19,7 +19,7 @@ class HomeTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        numOfTweets = 5
+        numOfTweets = 20
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
         
@@ -31,10 +31,6 @@ class HomeTableViewController: UITableViewController {
         self.loadTweets()
         
     } // end viewDidAppear
-    
-    @objc func injected() {
-        viewDidAppear(true)
-    }
     
     @objc func loadTweets() {
         
