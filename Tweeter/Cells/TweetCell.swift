@@ -12,16 +12,16 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var mediaImageView: UIImageView!
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var tweetContentLabel: UILabel!
     @IBOutlet weak var tweetTimestamp: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
     
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
-    
-    @IBOutlet weak var retweetCountLabel: UILabel!
-    @IBOutlet weak var favoriteCountLabel: UILabel!
     
     var favorited:Bool = false
     var retweeted:Bool = false
@@ -34,16 +34,14 @@ class TweetCell: UITableViewCell {
         if toBeFavorited {
             TwitterAPICaller.client?.favoriteTweet(tweetId: tweetId, success: {
                 self.setFavorited(true)
-                print("Favorited: ", self.favorited)
-            }, failure: { (error) in
-                print("Favorite did not succeed: \(error)")
+            }, failure: { (Error) in
+                print("Favorite did not succeed: \(Error)")
             })
         } else {
             TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
                 self.setFavorited(false)
-                print("Favorited: ", self.favorited)
-            }, failure: { (error) in
-                print("Unfavorited did not succeed: \(error)")
+            }, failure: { (Error) in
+                print("Unfavorited did not succeed: \(Error)")
             })
         }
         
@@ -56,16 +54,14 @@ class TweetCell: UITableViewCell {
         if toBeRetweeted {
             TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
                 self.setRetweeted(true)
-                print("Retweeted: ", self.retweeted)
-            }, failure: { (error) in
-                print("Error in retweeting: \(error)")
+            }, failure: { (Error) in
+                print("Error in retweeting: \(Error)")
             })
         } else {
             TwitterAPICaller.client?.unretweet(tweetId: tweetId, success: {
                 self.setRetweeted(false)
-                print("Untweeted: ", self.retweeted)
-            }, failure: { (error) in
-                print("Error in unretweeting: \(error)")
+            }, failure: { (Error) in
+                print("Error in unretweeting: \(Error)")
             })
         }
         
@@ -111,13 +107,17 @@ class TweetCell: UITableViewCell {
 extension UIImageView {
     
     func roundedImage() {
+        
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
-    }
+        
+    } // end roundedImage function
     
     func roundedBorders() {
+        
         self.layer.cornerRadius = 20
         self.clipsToBounds = true
-    }
+        
+    } // end roundedBorders function
     
-}
+} // end TweetCell class

@@ -49,7 +49,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         // The new text should be allowed? True/False
         return newText.count < characterLimit
         
-    } // end textView function
+    } // end textView(shouldChangeTextIn) function
     
     @IBAction func cancelTweet(_ sender: Any) {
         
@@ -57,14 +57,13 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         
     } // end cancelTweet function
     
-    
     @IBAction func tweetMessage(_ sender: Any) {
         
         if (!tweetTextView.text.isEmpty) {
             TwitterAPICaller.client?.postTweet(tweetString: tweetTextView.text, success: {
                 self.dismiss(animated: true, completion: nil)
-            }, failure: { (error) in
-                print("Error posting tweet: \(error)")
+            }, failure: { (Error) in
+                print("Error posting tweet: \(Error)")
                 self.dismiss(animated: true, completion: nil)
             })
         } else {
@@ -83,4 +82,4 @@ class TweetViewController: UIViewController, UITextViewDelegate {
      }
      */
     
-}
+} // end TweetViewController class

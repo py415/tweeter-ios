@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         
         dismiss(animated: true, completion: nil)
         
-    } // end viewDidLaod function
+    } // end dismiss function
     
     /*
     // MARK: - Navigation
@@ -37,4 +37,4 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
+} // end ProfileViewController class

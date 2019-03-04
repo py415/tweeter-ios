@@ -10,7 +10,7 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
-    var tweetArr = [NSDictionary]()
+    var tweetArray = [NSDictionary]()
     var numOfTweets: Int!
     
     let myRefreshControl = UIRefreshControl()
@@ -30,7 +30,7 @@ class HomeTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         self.loadTweets()
         
-    } // end viewDidAppear
+    } // end viewDidAppear function
     
     @objc func loadTweets() {
         
@@ -39,10 +39,10 @@ class HomeTableViewController: UITableViewController {
         
         TwitterAPICaller.client?.getDictionariesRequest(url: tweetUrl, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
             
-            self.tweetArr.removeAll()
+            self.tweetArray.removeAll()
             
             for tweet in tweets {
-                self.tweetArr.append(tweet)
+                self.tweetArray.append(tweet)
             }
             
             self.tableView.reloadData()
@@ -61,28 +61,28 @@ class HomeTableViewController: UITableViewController {
         
         TwitterAPICaller.client?.getDictionariesRequest(url: tweetUrl, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
             
-            self.tweetArr.removeAll()
+            self.tweetArray.removeAll()
             
             for tweet in tweets {
-                self.tweetArr.append(tweet)
+                self.tweetArray.append(tweet)
             }
             
             self.tableView.reloadData()
             print("Loading more tweets")
             
         }, failure: { (Error) in
-            print("Could not retrieve tweets!: \(Error)")
+            print("Could not retrieve more tweets!: \(Error)")
         })
         
     } // end loadMoreTweets function
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
-        if indexPath.row + 1 == tweetArr.count {
+        
+        if indexPath.row + 1 == tweetArray.count {
             loadMoreTweets()
         }
-
-    } // end tableView function
+        
+    } // end tableView(willDisplay) function
     
     @IBAction func onLogout(_ sender: Any) {
         
@@ -100,25 +100,25 @@ class HomeTableViewController: UITableViewController {
         time = dateFormatter.date(from: timeString)!
         return time.timeAgoDisplay()
         
-    }
+    } // end getRelativeTime function
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
-        let user = tweetArr[indexPath.row]["user"] as! NSDictionary
-        let entities = tweetArr[indexPath.row]["entities"] as! NSDictionary
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        let entities = tweetArray[indexPath.row]["entities"] as! NSDictionary
         
         cell.profileImageView.roundedImage()
         cell.mediaImageView.roundedBorders()
         cell.userNameLabel.text = user["name"] as? String
         let screen_name = user["screen_name"] as? String
         cell.screenNameLabel.text = "@\(screen_name!)"
-        cell.tweetContentLabel.text = tweetArr[indexPath.row]["text"] as? String
-        cell.tweetTimestamp.text = getRelativeTime(timeString: (tweetArr[indexPath.row]["created_at"] as? String)!)
+        cell.tweetContentLabel.text = tweetArray[indexPath.row]["text"] as? String
+        cell.tweetTimestamp.text = getRelativeTime(timeString: (tweetArray[indexPath.row]["created_at"] as? String)!)
         
-        let favorite_count = tweetArr[indexPath.row]["favorite_count"] as? Int
+        let favorite_count = tweetArray[indexPath.row]["favorite_count"] as? Int
         cell.favoriteCountLabel.text = "\(favorite_count!)"
-        let retweet_count = tweetArr[indexPath.row]["retweet_count"] as? Int
+        let retweet_count = tweetArray[indexPath.row]["retweet_count"] as? Int
         cell.retweetCountLabel.text = "\(retweet_count!)"
         
         let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
@@ -128,11 +128,8 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
-        if let media = entities.value(forKey: "media") as? [[String:Any]],
-            !media.isEmpty,
+        if let media = entities.value(forKey: "media") as? [[String:Any]], !media.isEmpty,
             let mediaUrl = URL(string: (media[0]["media_url_https"] as? String)!) {
-            
-            print("media_url_https: ", mediaUrl)
             let data = try? Data(contentsOf: mediaUrl)
             let mediaType = (media[0]["type"] as? String)!
             
@@ -141,37 +138,37 @@ class HomeTableViewController: UITableViewController {
                     cell.mediaImageView.image = UIImage(data: mediaData)
                 }
             }
-            
-        } else {
-            print("Does not contain media")
         }
         
-        cell.setFavorited(tweetArr[indexPath.row]["favorited"] as! Bool)
-        cell.tweetId = tweetArr[indexPath.row]["id"] as! Int
-        cell.setRetweeted(tweetArr[indexPath.row]["retweeted"] as! Bool)
+        cell.setFavorited(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         
         cell.setNeedsUpdateConstraints()
         cell.setNeedsLayout()
         
         return cell
         
-    } // end tableView function
+    } // end tableView(cellForRowAt) function
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
+        
     } // end numberOfSections function
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return tweetArr.count
-    } // end tableView function
+        
+        return tweetArray.count
+        
+    } // end tableView(numberOfRowsInSection) function
     
 } // end HomeTableViewController class
 
 extension Date {
+    
     func timeAgoDisplay() -> String {
         let secondsAgo = Int(Date().timeIntervalSince(self))
         let minute = 60
@@ -189,6 +186,6 @@ extension Date {
         }
         
         return "\(secondsAgo / 60 / 60 / 24 / 7) weeks ago"
-    }
+    } // end timeAgoDisplay function
     
-}
+} // end Date extension
