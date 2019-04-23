@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "absolute:/Users/philipyu/Desktop/git_workspace/CSC 699/Tweeter/Tweeter.xcodeproj">
+      location = "group:Tweeter.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Tweeter.xcodeproj">
    </FileRef>
 </Workspace>
