@@ -128,7 +128,6 @@ typedef NS_ENUM(NSInteger, AFImageDownloadPrioritization) {
  appended to the already existing task. Once the task completes, all success or failure blocks attached to the
  task are executed in the order they were added.
 
- @param request The URL request.
  @param request The identifier to use for the download receipt that will be created for this request. This must be a unique identifier that does not represent any other request.
  @param success A block to be executed when the image data task finishes successfully. This block has no return value and takes three arguments: the request sent from the client, the response received from the server, and the image created from the response data of request. If the image was returned from cache, the response parameter will be `nil`.
  @param failure A block object to be executed when the image data task finishes unsuccessfully, or that finishes successfully. This block has no return value and takes three arguments: the request sent from the client, the response received from the server, and the error object describing the network or parsing error that occurred.

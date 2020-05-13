@@ -160,6 +160,7 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
         [strongTask suspend];
     }];
     if ([self.uploadProgress respondsToSelector:@selector(setResumingHandler:)]) {
+        if (@available(iOS 9, *))
         [self.uploadProgress setResumingHandler:^{
             __typeof__(weakTask) strongTask = weakTask;
             [strongTask resume];
@@ -178,6 +179,7 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
     }];
 
     if ([self.downloadProgress respondsToSelector:@selector(setResumingHandler:)]) {
+        if (@available(iOS 9, *))
         [self.downloadProgress setResumingHandler:^{
             __typeof__(weakTask) strongTask = weakTask;
             [strongTask resume];
