@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     private var userId: Int? = 0
     private var tweetArray = [NSDictionary]()
     private var numberOfTweets: Int!
+    private let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         
@@ -33,13 +34,18 @@ class ProfileViewController: UIViewController {
         
         Constants.makeImageCircular(profileImageView)
         
+        // Pull to refresh
+        myRefreshControl.addTarget(self, action: #selector(loadUserData), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+        
+        numberOfTweets = 20
         loadUserData()
         
     }
     
     // MARK: - Private Function Section
     
-    private func loadUserData() {
+    @objc private func loadUserData() {
         
         let myParams = ["skip_status": true]
         
@@ -66,7 +72,6 @@ class ProfileViewController: UIViewController {
                 self.profileImageView.image = UIImage(data: imageData)
             }
             
-            self.numberOfTweets = 20
             self.loadTweets(for: username)
         }, failure: { (error) in
             print("[\(type(of: self))] Failed to get logged in user profile data — \(error)")
@@ -74,7 +79,7 @@ class ProfileViewController: UIViewController {
         
     }
     
-    @objc private func loadTweets(for screenName: String) {
+    private func loadTweets(for screenName: String) {
         
         let myParams = ["screen_name": screenName, "count": numberOfTweets!] as [String: Any]
         
@@ -88,6 +93,7 @@ class ProfileViewController: UIViewController {
             }
             
             self.tableView.reloadData()
+            self.myRefreshControl.endRefreshing()
         }, failure: { (error) in
             print("[\(type(of: self))] Failed to load tweets  — \(error.localizedDescription)")
         })

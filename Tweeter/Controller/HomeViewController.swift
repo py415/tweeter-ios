@@ -30,6 +30,12 @@ class HomeViewController: UIViewController {
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
         // Load tweets
         numberOfTweets = 20
         loadTweets()

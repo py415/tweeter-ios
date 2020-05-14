@@ -15,10 +15,10 @@
 		7217A2AD246BD87B00895F9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2AC246BD87B00895F9F /* LoginViewController.swift */; };
 		7217A2AF246BD9F600895F9F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2AE246BD9F600895F9F /* HomeViewController.swift */; };
 		7217A2B1246BDBD200895F9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2B0246BDBD200895F9F /* Constants.swift */; };
+		72576C0C246D37B4007CD756 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72576C0B246D37B4007CD756 /* ApiKeys.plist */; };
 		7263D590246BFC1000F27EFD /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7263D58F246BFC1000F27EFD /* TweetViewController.swift */; };
 		72692B75246BE7F600750F74 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72692B74246BE7F600750F74 /* TweetCell.swift */; };
 		72B112B7246CB06D0089074B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B112B6246CB06D0089074B /* ProfileViewController.swift */; };
-		72CE58FA246CE54E00F11496 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72CE58F9246CE54E00F11496 /* ApiKeys.plist */; };
 		746BB36359769F24601E4BC6 /* Pods_Tweeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504D738F71B12F0235307D05 /* Pods_Tweeter.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +37,10 @@
 		7217A2AC246BD87B00895F9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7217A2AE246BD9F600895F9F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7217A2B0246BDBD200895F9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72576C0B246D37B4007CD756 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		7263D58F246BFC1000F27EFD /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		72692B74246BE7F600750F74 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		72B112B6246CB06D0089074B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		72CE58F9246CE54E00F11496 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		872C2D82F41D5A5D2A920E9E /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D685C92646819A9A0DC30C /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7217A29F246BD73800895F9F /* Info.plist */,
-				72CE58F9246CE54E00F11496 /* ApiKeys.plist */,
+				72576C0B246D37B4007CD756 /* ApiKeys.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7217A2A6246BD73F00895F9F /* LaunchScreen.storyboard in Resources */,
-				72CE58FA246CE54E00F11496 /* ApiKeys.plist in Resources */,
+				72576C0C246D37B4007CD756 /* ApiKeys.plist in Resources */,
 				7217A2A8246BD73F00895F9F /* Assets.xcassets in Resources */,
 				7217A2AB246BD75100895F9F /* Main.storyboard in Resources */,
 			);
