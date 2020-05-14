@@ -1,48 +1,52 @@
-# Project 3 - *Tweeter*
+# Tweeter
 
-**Tweeter** is a basic twitter app to view, compose, favorite, and retweet tweets.
+## Table of Contents
+1. [Overview](#Overview)
+2. [Product Specs](#Product-Specs)
+3. [App Walkthrough](#App-Walkthrough)
+4. [APIs Used](#APIs-Used)
+5. [Open-Source libraries used](#Open-Source-libraries-used)
+6. [Credits](#Credits)
 
-## Twitter - Part II
+## Overview
+### Description
 
+Tweeter is a simple Twitter client that allows users to view their feed and compose, favorite, and retweet tweets.
+
+## Product Specs
 ### User Stories
 
-The following **required** functionality is completed:
+- [X] User shall be app icon in home screen and styled launch screen.
+- [X] User shall be able to log in.
+- [X] User shall be able to log out.
+- [X] User shall be able to stay logged in across restarts.
+- [X] User shall be able to view tweets with the user profile picture, username, and tweet text.
+- [X] User shall be able to pull to refresh.
+- [X] User shall be able to load past tweets infinitely.
+- [X] User shall be able to compose tweets.
+- [X] User shall be able to favorite tweets.
+- [X] User shall be able to retweet tweets.
+- [X] User shall be able to see a countdown for the number of characters remaining for the tweet (out of 140), when composing a tweet.
+- [X] User shall be able to view their profile in a profile tab.
+- [X] User shall be able to view embedded images in tweet if available.
 
-- [x] User can compose a tweet. (4pts)
-- [x] User can favorite a tweet. (4pts)
-- [x] User can retweet a tweet. (2pts)
+## App Walkthrough
 
-The following **bonus** features are implemented:
+Here's a GIF of how the app works:
 
-- [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pts)
-- [ ] User can view their profile in a profile tab. (3pts)
-- [x] User sees embedded images in tweet if available. (3pts)
+<img src="https://user-images.githubusercontent.com/35745973/81894608-023cdc80-9565-11ea-85ec-62c277da9ac8.gif" width=250><br>
 
-#### Video Walkthrough
+## APIs Used
 
-Here's a walkthrough of implemented user stories:
+- [Twitter API](https://developer.twitter.com/en) - Allow developers to access core Twitter data — including update timelines, status data, and user information.
 
-<img src='https://media.giphy.com/media/8hYOBunl42AOY66oft/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+## Open-source libraries used
 
-## Twitter - Part I
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking) -  A delightful networking library for iOS, macOS, watchOS, and tvOS. It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs that are a joy to use.
+- [Alamofire](https://github.com/Alamofire/Alamofire) - An HTTP networking library written in Swift.
+- [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - An image component library for Alamofire.
+- [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager) - An OAuth 1.0a library for AFNetworking 2.x.
 
-### User Stories
+## Credits
 
-The following **required** functionality is completed:
-
-- [x] User sees app icon in home screen and styled launch screen. (1pt)
-- [x] User can log in. (1pt)
-- [x] User can log out. (1pt)
-- [x] User stays logged in across restarts. (1pt)
-- [x] User can view tweets with the user profile picture, username, and tweet text. (6pts)
-
-The following **bonus** features are implemented:
-
-- [x] User can pull to refresh. (1pt)
-- [x] User can load past tweets infinitely. (2pts)
-
-#### Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='https://media.giphy.com/media/46zrGKxpwcSXg58ty9/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+>This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/)
