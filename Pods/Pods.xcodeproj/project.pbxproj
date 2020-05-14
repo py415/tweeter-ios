@@ -58,7 +58,7 @@
 		6187342ED6991E6B18AA1B08D29AD30F /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E57CCD4D6617F9EAD33BD3CF4738455 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D469536131C23B95AAAA5CD3DC6542 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFBC9A15BB0671C1316BB8E19CB4B62 /* UIButton+AFNetworking.m */; };
 		6C8EC166C81EB4E72450A002224658DC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F7BED4A595AEF72CD889A5EBCAE41 /* HTTPMethod.swift */; };
-		72ED7E0D246B75A300757B3F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ED7E0C246B75A300757B3F /* CoreServices.framework */; };
+		727A5254246D09E700B809A6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727A5253246D09E700B809A6 /* CoreServices.framework */; };
 		75C7A60D8FA8F39F14599593E137981C /* ImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DCEE45DCB21AA8ABA35F5940DFB937 /* ImageFilter.swift */; };
 		79AD396149E07F44C0313EA769ACB978 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = EF846C71569978018E55D10190C83B9E /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80DBE8FF4DFE41CB54687CAB6A29F1B3 /* StringEncoding+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676DF29051A5D88E7E9ADCF015C2DE84 /* StringEncoding+Alamofire.swift */; };
@@ -210,7 +210,7 @@
 		6B7E514E591DBA79E0BA03D863180A53 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		71DCEE45DCB21AA8ABA35F5940DFB937 /* ImageFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFilter.swift; path = Source/ImageFilter.swift; sourceTree = "<group>"; };
 		725B49F3C9CFFA2DAFC61790C216506B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		72ED7E0C246B75A300757B3F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		727A5253246D09E700B809A6 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		74844C16DD43FE34003D2B9869A616BD /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BDBOAuth1RequestSerializer.m; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
 		760D1D4E58DC764C23E761A52879CDD4 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Source/ImageDownloader.swift; sourceTree = "<group>"; };
 		77504FE81E149D93A26D9ECC7D0B1E16 /* BDBOAuth1SessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BDBOAuth1SessionManager.h; path = BDBOAuth1Manager/BDBOAuth1SessionManager.h; sourceTree = "<group>"; };
@@ -320,9 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3896AEE03DED0805E2EBB8247CAA322E /* CoreGraphics.framework in Frameworks */,
+				727A5254246D09E700B809A6 /* CoreServices.framework in Frameworks */,
 				1D3E94F63FDC6E189AD0FD24CCDD2B41 /* Foundation.framework in Frameworks */,
 				1A73F528427B197C94E28BE4FE8E8497 /* Security.framework in Frameworks */,
-				72ED7E0D246B75A300757B3F /* CoreServices.framework in Frameworks */,
 				9C7270EBCF8E3A78D25B514D52064315 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,7 +638,7 @@
 		F5E03DDB2D207472B064DA32852E6CC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				72ED7E0C246B75A300757B3F /* CoreServices.framework */,
+				727A5253246D09E700B809A6 /* CoreServices.framework */,
 				AECB8720C48B1BAF65B13CBD83D2404E /* AFNetworking.framework */,
 				AAE5D8020916729FC0F13E6D9292A1DB /* Alamofire.framework */,
 				BEAF1FF0B8C670D15B4BD52B5C8D3AC6 /* iOS */,
