@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         let myParams = ["count": numberOfTweets]
         
         // Load tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load tweets...")
             self.tweetArray.removeAll()
             
@@ -61,11 +61,11 @@ class HomeViewController: UIViewController {
     
     private func loadMoreTweets() {
         
-        numberOfTweets = numberOfTweets + 20
+        numberOfTweets += 20
         let myParams = ["count": numberOfTweets]
         
         // Load more tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load more tweets...")
             self.tweetArray.removeAll()
             

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 struct Constants {
     
     static let consumerKey = fetchFromPlist(forResource: "ApiKeys", forKey: "CONSUMER_KEY")
@@ -33,7 +32,7 @@ struct Constants {
     
     static func getRelativeTime(timeString: String) -> String {
         
-        let time:Date
+        let time: Date
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"

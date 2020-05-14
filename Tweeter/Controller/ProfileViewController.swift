@@ -76,10 +76,10 @@ class ProfileViewController: UIViewController {
     
     @objc private func loadTweets(for screenName: String) {
         
-        let myParams = ["screen_name": screenName, "count": numberOfTweets!] as [String : Any]
+        let myParams = ["screen_name": screenName, "count": numberOfTweets!] as [String: Any]
         
         // Load tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.userTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.userTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load tweets...")
             self.tweetArray.removeAll()
             
