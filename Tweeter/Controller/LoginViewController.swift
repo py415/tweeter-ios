@@ -1,58 +1,50 @@
 //
 //  LoginViewController.swift
-//  Twitter
+//  Tweeter
 //
-//  Created by Philip Yu on 2/20/19.
-//  Copyright © 2019 Dan. All rights reserved.
+//  Created by Philip Yu on 5/13/20.
+//  Copyright © 2020 Dan. All rights reserved.
 //
 
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+
+    // MARK: - Outlets
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        loginButton.layer.cornerRadius = 20
-        loginButton.clipsToBounds = true
-        
-        // Do any additional setup after loading the view.
-        
-    } // end viewDidLoad function
+        Constants.makeButtonRounded(loginButton, roundness: 25)
+
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
+        // Check if user is already authenticated and authorized access to account
         if UserDefaults.standard.bool(forKey: "userLoggedIn") == true {
+            print("[\(type(of: self))] User previously authenticated and given authority to access account...")
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
         
-    } // end viewDidAppear function
+    }
     
-    @IBAction func onLoginButton(_ sender: Any) {
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
         
-        let authUrl = "https://api.twitter.com/oauth/request_token"
+        print("[\(type(of: self))] Login button pressed.")
         
-        UserDefaults.standard.set(true, forKey: "userLoggedIn")
-        
-        TwitterAPICaller.client?.login(url: authUrl, success: {
-            self.performSegue(withIdentifier: "loginToHome", sender: self)
-        }, failure: { (Error) in
-            print("Could not log in!: \(Error)")
+        // Do an authentication and authorization check
+        TwitterAPICaller.client?.login(url: Constants.authURL, success: {
+            // Sign in if user is authenticated and authorized to access acount
+            print("[\(type(of: self))] Successfully logged onto Twitter.")
+            UserDefaults.standard.set(true, forKey: "userLoggedIn")
+            self.performSegue(withIdentifier: "loginToHome", sender: self) 
+        }, failure: { (error) in
+            print("[\(type(of: self))] Failed to login, \(error)")
         })
         
-    } // end onLoginButton function
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-} // end LoginViewController class
+}

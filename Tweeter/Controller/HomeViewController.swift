@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  HomeViewController.swift
 //  Tweeter
 //
 //  Created by Philip Yu on 5/13/20.
@@ -8,78 +8,42 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+class HomeViewController: UIViewController {
+    
     // MARK: - Outlets
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var displayName: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var favoritesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    private var userId: Int? = 0
     private var tweetArray = [NSDictionary]()
     private var numberOfTweets: Int!
+    private let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        // Set view controller as delegate
         tableView.dataSource = self
         tableView.delegate = self
         
-        Constants.makeImageCircular(profileImageView)
+        // Pull to refresh
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
         
-        loadUserData()
+        // Load tweets
+        numberOfTweets = 20
+        loadTweets()
         
     }
     
     // MARK: - Private Function Section
     
-    private func loadUserData() {
+    @objc private func loadTweets() {
         
-        let myParams = ["skip_status": true]
-        
-        TwitterAPICaller.client?.getDictionaryRequest(url: Constants.userURL, parameters: myParams, success: { (userData: NSDictionary) in
-            let username = userData["screen_name"] as! String
-            let following = userData["friends_count"] as! Int
-            let followers = userData["followers_count"] as! Int
-            let favorites = userData["favourites_count"] as! Int
-
-            self.displayName.text = userData["name"] as? String
-            self.usernameLabel.text = "@\(username)"
-            self.followingLabel.text = "\(following) Following"
-            self.followersLabel.text = "\(followers) Followers"
-            self.favoritesLabel.text = "\(favorites) Favorites"
-            
-            // Profile image
-            var imageUrlString = userData["profile_image_url_https"] as! String
-            imageUrlString = imageUrlString.replacingOccurrences(of: "normal", with: "bigger")
-
-            let imageUrl = URL(string: imageUrlString)
-            let data = try? Data(contentsOf: imageUrl!)
-            
-            if let imageData = data {
-                self.profileImageView.image = UIImage(data: imageData)
-            }
-            
-            self.numberOfTweets = 20
-            self.loadTweets(for: username)
-        }, failure: { (error) in
-            print("[\(type(of: self))] Failed to get logged in user profile data — \(error)")
-        })
-        
-    }
-    
-    @objc private func loadTweets(for screenName: String) {
-        
-        let myParams = ["screen_name": screenName, "count": numberOfTweets!] as [String : Any]
+        let myParams = ["count": numberOfTweets]
         
         // Load tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.userTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load tweets...")
             self.tweetArray.removeAll()
             
@@ -88,17 +52,56 @@ class ProfileViewController: UIViewController {
             }
             
             self.tableView.reloadData()
+            self.myRefreshControl.endRefreshing()
         }, failure: { (error) in
             print("[\(type(of: self))] Failed to load tweets  — \(error.localizedDescription)")
         })
         
     }
-
+    
+    private func loadMoreTweets() {
+        
+        numberOfTweets = numberOfTweets + 20
+        let myParams = ["count": numberOfTweets]
+        
+        // Load more tweets
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
+            print("[\(type(of: self))] Load more tweets...")
+            self.tweetArray.removeAll()
+            
+            for tweet in tweets {
+                self.tweetArray.append(tweet)
+            }
+            
+            self.tableView.reloadData()
+        }, failure: { (error) in
+            print("[\(type(of: self))] Failed to load tweets — \(error.localizedDescription)")
+        })
+        
+    }
+    
+    // MARK: - IBAction Function Section
+    
+    @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
+        
+        print("\(type(of: self)): Logout button pressed.")
+        TwitterAPICaller.client?.logout()
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
 
-extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource Section
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -161,6 +164,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row + 1 == tweetArray.count {
+            loadMoreTweets()
+        }
         
     }
     
