@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Constants {
+struct Constant {
     
     static let consumerKey = fetchFromPlist(forResource: "ApiKeys", forKey: "CONSUMER_KEY")
     static let consumerSecret = fetchFromPlist(forResource: "ApiKeys", forKey: "CONSUMER_SECRET")

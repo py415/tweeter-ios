@@ -11,9 +11,11 @@ import BDBOAuth1Manager
 
 class TwitterAPICaller: BDBOAuth1SessionManager {
     
-    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: Constants.consumerKey, consumerSecret: Constants.consumerSecret)
-    var loginSuccess: (() -> Void)?
-    var loginFailure: ((Error) -> Void)?
+    // MARK: - Properties
+    private var loginSuccess: (() -> Void)?
+    private var loginFailure: ((Error) -> Void)?
+    
+    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: Constant.consumerKey, consumerSecret: Constant.consumerSecret)
     
     func handleOpenUrl(url: URL) {
         
@@ -81,7 +83,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
     
     func postTweet(tweetString: String, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         
-        TwitterAPICaller.client?.post(Constants.updateURL, parameters: ["status": tweetString], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
+        TwitterAPICaller.client?.post(Constant.updateURL, parameters: ["status": tweetString], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
             success()
         }, failure: { (_: URLSessionDataTask?, error: Error) in
             failure(error)
@@ -91,7 +93,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
     
     func favoriteTweet(tweetId: Int, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         
-        TwitterAPICaller.client?.post(Constants.favoriteURL, parameters: ["id": tweetId], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
+        TwitterAPICaller.client?.post(Constant.favoriteURL, parameters: ["id": tweetId], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
             success()
         }, failure: { (_: URLSessionDataTask?, error: Error) in
             failure(error)
@@ -101,7 +103,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
     
     func unfavoriteTweet(tweetId: Int, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         
-        TwitterAPICaller.client?.post(Constants.unfavoriteURL, parameters: ["id": tweetId], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
+        TwitterAPICaller.client?.post(Constant.unfavoriteURL, parameters: ["id": tweetId], progress: nil, success: { (_: URLSessionDataTask, _: Any?) in
             success()
         }, failure: { (_: URLSessionDataTask?, error: Error) in
             failure(error)

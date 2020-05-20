@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         let myParams = ["count": numberOfTweets]
         
         // Load tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constant.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load tweets...")
             self.tweetArray.removeAll()
             
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
         let myParams = ["count": numberOfTweets]
         
         // Load more tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constant.homeTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load more tweets...")
             self.tweetArray.removeAll()
             
@@ -86,7 +86,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    // MARK: - IBAction Function Section
+    // MARK: - IBAction Section
     
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -130,7 +130,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.nameLabel.text = user["name"] as? String
         cell.screenNameLabel.text = "@\(screenName)"
-        cell.createdAtLabel.text = Constants.getRelativeTime(timeString: dateString)
+        cell.createdAtLabel.text = Constant.getRelativeTime(timeString: dateString)
         cell.tweetContentLabel.text = tweetArray[indexPath.row]["text"] as? String
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.setRetweet(tweetArray[indexPath.row]["retweeted"] as! Bool)
@@ -152,7 +152,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             
             if type == "photo" {
                 if let mediaData = data {
-                    Constants.makeImageRounded(cell.mediaImageView, roundness: 20)
+                    Constant.makeImageRounded(cell.mediaImageView, roundness: 20)
                     cell.mediaImageView.image = UIImage(data: mediaData)
                 }
             }

@@ -31,7 +31,7 @@ class TweetCell: UITableViewCell {
         
         super.awakeFromNib()
         
-        Constants.makeImageCircular(profileImageView)
+        Constant.makeImageCircular(profileImageView)
         
     }
 
@@ -67,7 +67,7 @@ class TweetCell: UITableViewCell {
         
     }
     
-    // MARK: - IBAction Function Section
+    // MARK: - IBAction Section
 
     @IBAction func favoriteTapped(_ sender: UIButton) {
         

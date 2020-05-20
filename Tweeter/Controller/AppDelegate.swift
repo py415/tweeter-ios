@@ -20,16 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func applicationWillResignActive(_ application: UIApplication) { }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) { }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) { }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) { }
-    
-    func applicationWillTerminate(_ application: UIApplication) { }
-    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
         TwitterAPICaller.client?.handleOpenUrl(url: url)

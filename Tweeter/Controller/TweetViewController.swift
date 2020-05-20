@@ -22,12 +22,12 @@ class TweetViewController: UIViewController {
         tweetTextView.delegate = self
         tweetTextView.becomeFirstResponder()
         
-        Constants.makeTextViewRounded(tweetTextView, roundness: 15, borderWidth: 1)
-        Constants.makeButtonRounded(composeButton, roundness: 15)
+        Constant.makeTextViewRounded(tweetTextView, roundness: 15, borderWidth: 1)
+        Constant.makeButtonRounded(composeButton, roundness: 15)
         
     }
     
-    // MARK: - IBAction Function Section
+    // MARK: - IBAction Section
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         

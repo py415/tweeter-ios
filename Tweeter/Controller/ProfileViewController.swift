@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        Constants.makeImageCircular(profileImageView)
+        Constant.makeImageCircular(profileImageView)
         
         // Pull to refresh
         myRefreshControl.addTarget(self, action: #selector(loadUserData), for: .valueChanged)
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
         
         let myParams = ["skip_status": true]
         
-        TwitterAPICaller.client?.getDictionaryRequest(url: Constants.userURL, parameters: myParams, success: { (userData: NSDictionary) in
+        TwitterAPICaller.client?.getDictionaryRequest(url: Constant.userURL, parameters: myParams, success: { (userData: NSDictionary) in
             let username = userData["screen_name"] as! String
             let following = userData["friends_count"] as! Int
             let followers = userData["followers_count"] as! Int
@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController {
         let myParams = ["screen_name": screenName, "count": numberOfTweets!] as [String: Any]
         
         // Load tweets
-        TwitterAPICaller.client?.getDictionariesRequest(url: Constants.userTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: Constant.userTimelineURL, parameters: myParams as [String: Any], success: { (tweets: [NSDictionary]) in
             print("[\(type(of: self))] Load tweets...")
             self.tweetArray.removeAll()
             
@@ -127,7 +127,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.nameLabel.text = user["name"] as? String
         cell.screenNameLabel.text = "@\(screenName)"
-        cell.createdAtLabel.text = Constants.getRelativeTime(timeString: dateString)
+        cell.createdAtLabel.text = Constant.getRelativeTime(timeString: dateString)
         cell.tweetContentLabel.text = tweetArray[indexPath.row]["text"] as? String
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.setRetweet(tweetArray[indexPath.row]["retweeted"] as! Bool)
@@ -149,7 +149,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
             if type == "photo" {
                 if let mediaData = data {
-                    Constants.makeImageRounded(cell.mediaImageView, roundness: 20)
+                    Constant.makeImageRounded(cell.mediaImageView, roundness: 20)
                     cell.mediaImageView.image = UIImage(data: mediaData)
                 }
             }

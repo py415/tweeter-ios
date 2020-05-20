@@ -14,8 +14,8 @@
 		7217A2AB246BD75100895F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7217A2A9246BD75100895F9F /* Main.storyboard */; };
 		7217A2AD246BD87B00895F9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2AC246BD87B00895F9F /* LoginViewController.swift */; };
 		7217A2AF246BD9F600895F9F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2AE246BD9F600895F9F /* HomeViewController.swift */; };
-		7217A2B1246BDBD200895F9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2B0246BDBD200895F9F /* Constants.swift */; };
-		72576C0C246D37B4007CD756 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72576C0B246D37B4007CD756 /* ApiKeys.plist */; };
+		7217A2B1246BDBD200895F9F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217A2B0246BDBD200895F9F /* Constant.swift */; };
+		725C4DC2247516A00083422E /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725C4DC1247516A00083422E /* ApiKeys.plist */; };
 		7263D590246BFC1000F27EFD /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7263D58F246BFC1000F27EFD /* TweetViewController.swift */; };
 		72692B75246BE7F600750F74 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72692B74246BE7F600750F74 /* TweetCell.swift */; };
 		72B112B7246CB06D0089074B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B112B6246CB06D0089074B /* ProfileViewController.swift */; };
@@ -36,8 +36,8 @@
 		7217A2AA246BD75100895F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7217A2AC246BD87B00895F9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7217A2AE246BD9F600895F9F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7217A2B0246BDBD200895F9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		72576C0B246D37B4007CD756 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		7217A2B0246BDBD200895F9F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		725C4DC1247516A00083422E /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		7263D58F246BFC1000F27EFD /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		72692B74246BE7F600750F74 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		72B112B6246CB06D0089074B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				7217A29D246BD73200895F9F /* TwitterAPICaller.swift */,
-				7217A2B0246BDBD200895F9F /* Constants.swift */,
+				7217A2B0246BDBD200895F9F /* Constant.swift */,
 				72692B74246BE7F600750F74 /* TweetCell.swift */,
 			);
 			path = Model;
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7217A29F246BD73800895F9F /* Info.plist */,
-				72576C0B246D37B4007CD756 /* ApiKeys.plist */,
+				725C4DC1247516A00083422E /* ApiKeys.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7217A2A6246BD73F00895F9F /* LaunchScreen.storyboard in Resources */,
-				72576C0C246D37B4007CD756 /* ApiKeys.plist in Resources */,
+				725C4DC2247516A00083422E /* ApiKeys.plist in Resources */,
 				7217A2A8246BD73F00895F9F /* Assets.xcassets in Resources */,
 				7217A2AB246BD75100895F9F /* Main.storyboard in Resources */,
 			);
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7217A2B1246BDBD200895F9F /* Constants.swift in Sources */,
+				7217A2B1246BDBD200895F9F /* Constant.swift in Sources */,
 				7217A2AD246BD87B00895F9F /* LoginViewController.swift in Sources */,
 				7217A29C246BD72300895F9F /* AppDelegate.swift in Sources */,
 				72692B75246BE7F600750F74 /* TweetCell.swift in Sources */,

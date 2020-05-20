@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         
-        Constants.makeButtonRounded(loginButton, roundness: 25)
+        Constant.makeButtonRounded(loginButton, roundness: 25)
 
     }
     
@@ -31,12 +31,14 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: - IBAction Section
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         print("[\(type(of: self))] Login button pressed.")
         
         // Do an authentication and authorization check
-        TwitterAPICaller.client?.login(url: Constants.authURL, success: {
+        TwitterAPICaller.client?.login(url: Constant.authURL, success: {
             // Sign in if user is authenticated and authorized to access acount
             print("[\(type(of: self))] Successfully logged onto Twitter.")
             UserDefaults.standard.set(true, forKey: "userLoggedIn")
