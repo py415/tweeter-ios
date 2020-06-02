@@ -4,8 +4,8 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [APIs Used](#APIs-Used)
-5. [Open-Source libraries used](#Open-Source-libraries-used)
+4. [APIs](#APIs)
+5. [Libraries](#Libraries)
 6. [Credits](#Credits)
 
 ## Overview
@@ -34,13 +34,13 @@ Tweeter is a simple Twitter client that allows users to view their feed and comp
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/81894608-023cdc80-9565-11ea-85ec-62c277da9ac8.gif" width=250><br>
+<img src="https://user-images.githubusercontent.com/35745973/81894608-023cdc80-9565-11ea-85ec-62c277da9ac8.gif" width=250>
 
-## APIs Used
+## APIs
 
 - [Twitter API](https://developer.twitter.com/en) - Allow developers to access core Twitter data — including update timelines, status data, and user information.
 
-## Open-source libraries used
+## Libraries
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) -  A delightful networking library for iOS, macOS, watchOS, and tvOS. It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs that are a joy to use.
 - [Alamofire](https://github.com/Alamofire/Alamofire) - An HTTP networking library written in Swift.
@@ -49,4 +49,4 @@ Here's a GIF of how the app works:
 
 ## Credits
 
->This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/)
+>This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/).
