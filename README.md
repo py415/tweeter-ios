@@ -34,7 +34,7 @@ Tweeter is a simple Twitter client that allows users to view their feed and comp
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/81894608-023cdc80-9565-11ea-85ec-62c277da9ac8.gif" width=250>
+<img src="https://github.com/py415/app-resources/blob/master/ios/ios-tweeter.gif" width=250>
 
 ## APIs
 
