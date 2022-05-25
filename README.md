@@ -1,19 +1,19 @@
-# Tweeter
+# 🐣 Tweeter
 
-## Table of Contents
-1. [Overview](#Overview)
-2. [Product Specs](#Product-Specs)
-3. [App Walkthrough](#App-Walkthrough)
-4. [APIs](#APIs)
-5. [Libraries](#Libraries)
-6. [Credits](#Credits)
+## 📋 Table of Contents
+1. [Overview](#-Overview)
+2. [Product Specs](#-Product-Specs)
+3. [App Walkthrough](#-App-Walkthrough)
+4. [APIs](#-APIs)
+5. [Libraries](#-Libraries)
+6. [Credits](#-Credits)
 
-## Overview
+## 👀 Overview
 ### Description
 
 Tweeter is a simple Twitter client that allows users to view their feed and compose, favorite, and retweet tweets.
 
-## Product Specs
+## 📕 Product Specs
 ### User Stories
 
 - [X] User shall be app icon in home screen and styled launch screen.
@@ -30,23 +30,23 @@ Tweeter is a simple Twitter client that allows users to view their feed and comp
 - [X] User shall be able to view their profile in a profile tab.
 - [X] User shall be able to view embedded images in tweet if available.
 
-## App Walkthrough
+## 🎬 App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="https://raw.githubusercontent.com/py415/app-resources/master/ios/ios-tweeter.gif" width="250" />
+<img src="https://raw.githubusercontent.com/py415/app-resources/master/GIFs/ios/ios-tweeter.gif" width="250" />
 
-## APIs
+## 🔑 APIs
 
 - [Twitter API](https://developer.twitter.com/en) - Allow developers to access core Twitter data — including update timelines, status data, and user information.
 
-## Libraries
+## 📚 Libraries
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) -  A delightful networking library for iOS, macOS, watchOS, and tvOS. It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs that are a joy to use.
 - [Alamofire](https://github.com/Alamofire/Alamofire) - An HTTP networking library written in Swift.
 - [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - An image component library for Alamofire.
 - [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager) - An OAuth 1.0a library for AFNetworking 2.x.
 
-## Credits
+## 💳 Credits
 
 >This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/).
